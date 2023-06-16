@@ -24,8 +24,8 @@
 #include "constants/items.h"
 #include "constants/songs.h"
 
-// Any item in the TM Case with nonzero importance is considered an HM
-#define IS_HM(itemId) (ItemId_GetImportance(itemId) != 0)
+// Any item in the TM Case that is not set as ".importance = 1" is considered an HM
+#define IS_HM(itemId) (ItemId_GetImportance(itemId) != 1)
 
 #define TAG_SCROLL_ARROW 110
 
@@ -1290,7 +1290,6 @@ static void Task_DoSaleOfTMs(u8 taskId)
     s16 * data = gTasks[taskId].data;
 
     PlaySE(SE_SHOP);
-    RemoveBagItem(gSpecialVar_ItemId, tQuantitySelected);
     AddMoney(&gSaveBlock1Ptr->money, ItemId_GetPrice(gSpecialVar_ItemId) / 2 * tQuantitySelected);
     RecordItemPurchase(gSpecialVar_ItemId, tQuantitySelected, 2);
     DestroyListMenuTask(tListTaskId, &sTMCaseStaticResources.scrollOffset, &sTMCaseStaticResources.selectedRow);

@@ -265,6 +265,8 @@ CeladonCity_GameCorner_PrizeRoom_EventScript_TM13::
 	setvar VAR_TEMP_1, ITEM_TM13
 	setvar VAR_TEMP_2, 4000
 	buffermovename STR_VAR_2, MOVE_ICE_BEAM
+	checkitem ITEM_TM13, 1
+	goto_if_eq CeladonCity_GameCorner_PrizeRoom_EventScript_YouAlreadyHaveThis
 	goto CeladonCity_GameCorner_PrizeRoom_EventScript_ConfirmPrizeTM
 	end
 
@@ -272,6 +274,8 @@ CeladonCity_GameCorner_PrizeRoom_EventScript_TM23::
 	setvar VAR_TEMP_1, ITEM_TM23
 	setvar VAR_TEMP_2, 3500
 	buffermovename STR_VAR_2, MOVE_IRON_TAIL
+	checkitem ITEM_TM23, 1
+	goto_if_eq CeladonCity_GameCorner_PrizeRoom_EventScript_YouAlreadyHaveThis
 	goto CeladonCity_GameCorner_PrizeRoom_EventScript_ConfirmPrizeTM
 	end
 
@@ -279,6 +283,8 @@ CeladonCity_GameCorner_PrizeRoom_EventScript_TM24::
 	setvar VAR_TEMP_1, ITEM_TM24
 	setvar VAR_TEMP_2, 4000
 	buffermovename STR_VAR_2, MOVE_THUNDERBOLT
+	checkitem ITEM_TM24, 1
+	goto_if_eq CeladonCity_GameCorner_PrizeRoom_EventScript_YouAlreadyHaveThis
 	goto CeladonCity_GameCorner_PrizeRoom_EventScript_ConfirmPrizeTM
 	end
 
@@ -286,6 +292,8 @@ CeladonCity_GameCorner_PrizeRoom_EventScript_TM30::
 	setvar VAR_TEMP_1, ITEM_TM30
 	setvar VAR_TEMP_2, 4500
 	buffermovename STR_VAR_2, MOVE_SHADOW_BALL
+	checkitem ITEM_TM30, 1
+	goto_if_eq CeladonCity_GameCorner_PrizeRoom_EventScript_YouAlreadyHaveThis
 	goto CeladonCity_GameCorner_PrizeRoom_EventScript_ConfirmPrizeTM
 	end
 
@@ -293,6 +301,8 @@ CeladonCity_GameCorner_PrizeRoom_EventScript_TM35::
 	setvar VAR_TEMP_1, ITEM_TM35
 	setvar VAR_TEMP_2, 4000
 	buffermovename STR_VAR_2, MOVE_FLAMETHROWER
+	checkitem ITEM_TM35, 1
+	goto_if_eq CeladonCity_GameCorner_PrizeRoom_EventScript_YouAlreadyHaveThis
 	goto CeladonCity_GameCorner_PrizeRoom_EventScript_ConfirmPrizeTM
 	end
 
@@ -324,6 +334,13 @@ CeladonCity_GameCorner_PrizeRoom_EventScript_TryGivePrize::
 CeladonCity_GameCorner_PrizeRoom_EventScript_BagFull::
 	textcolor NPC_TEXT_COLOR_NEUTRAL
 	msgbox Text_TooBadBagFull
+	hidecoinsbox 0, 0
+	release
+	end
+
+CeladonCity_GameCorner_PrizeRoom_EventScript_YouAlreadyHaveThis::
+	textcolor NPC_TEXT_COLOR_NEUTRAL
+	msgbox Text_YouAlreadyHaveThis
 	hidecoinsbox 0, 0
 	release
 	end

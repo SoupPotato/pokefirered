@@ -1790,12 +1790,7 @@ static void ReturnToBagMenuFromSubmenu_PCBox(void)
 static void Task_ItemContext_Sell(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
-    if (gSpecialVar_ItemId == ITEM_TM_CASE)
-    {
-        ItemMenu_SetExitCallback(GoToTMCase_Sell);
-        ItemMenu_StartFadeToExitCallback(taskId);
-    }
-    else if (gSpecialVar_ItemId == ITEM_BERRY_POUCH)
+    if (gSpecialVar_ItemId == ITEM_BERRY_POUCH)
     {
         ItemMenu_SetExitCallback(GoToBerryPouch_Sell);
         ItemMenu_StartFadeToExitCallback(taskId);
