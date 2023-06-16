@@ -24,8 +24,8 @@
 #include "constants/items.h"
 #include "constants/songs.h"
 
-// Any item in the TM Case that is not set as ".importance = 1" is considered an HM
-#define IS_HM(itemId) (ItemId_GetImportance(itemId) != 1)
+// Any item in the TM Case with nonzero importance is considered an HM
+#define IS_HM(itemId) (ItemId_GetImportance(itemId) != 0)
 
 #define TAG_SCROLL_ARROW 110
 
@@ -724,7 +724,7 @@ static void List_ItemPrintFunc(u8 windowId, u32 itemIndex, u8 y)
             StringExpandPlaceholders(gStringVar4, gText_TimesStrVar1);
             TMCase_Print(windowId, FONT_SMALL, gStringVar4, 126, y, 0, 0, TEXT_SKIP_DRAW, COLOR_DARK);
         }
-        else
+        else if (ItemId_GetImportance(BagGetItemIdByPocketPosition(POCKET_TM_CASE, itemIndex)) != 1)
         {
             PlaceHMTileInWindow(windowId, 8, y);
         }
@@ -1290,6 +1290,7 @@ static void Task_DoSaleOfTMs(u8 taskId)
     s16 * data = gTasks[taskId].data;
 
     PlaySE(SE_SHOP);
+    RemoveBagItem(gSpecialVar_ItemId, tQuantitySelected);
     AddMoney(&gSaveBlock1Ptr->money, ItemId_GetPrice(gSpecialVar_ItemId) / 2 * tQuantitySelected);
     RecordItemPurchase(gSpecialVar_ItemId, tQuantitySelected, 2);
     DestroyListMenuTask(tListTaskId, &sTMCaseStaticResources.scrollOffset, &sTMCaseStaticResources.selectedRow);
