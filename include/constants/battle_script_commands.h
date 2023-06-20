@@ -26,6 +26,8 @@
 #define sRESHOW_MAIN_STATE           gBattleScripting + 0x21 // reshowMainState
 #define sRESHOW_HELPER_STATE         gBattleScripting + 0x22 // reshowHelperState
 #define sLVLUP_HP                    gBattleScripting + 0x23 // levelUpHP
+#define sMON_CAUGHT                  gBattleScripting + 0x27
+#define sEXP_CATCH                   gBattleScripting + 0x28
 
 // Array entries for battle communication
 #define MULTIUSE_STATE          0
