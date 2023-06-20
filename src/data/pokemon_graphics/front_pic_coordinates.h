@@ -503,12 +503,12 @@ const struct MonCoords gMonFrontPicCoords[] =
     [SPECIES_VOLTORB] =
     {
         .size = MON_COORDS_SIZE(32, 32),
-        .y_offset = 19,
+        .y_offset = 17,
     },
     [SPECIES_ELECTRODE] =
     {
         .size = MON_COORDS_SIZE(40, 40),
-        .y_offset = 14,
+        .y_offset = 12,
     },
     [SPECIES_EXEGGCUTE] =
     {
