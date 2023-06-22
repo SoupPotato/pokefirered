@@ -522,7 +522,6 @@ struct BattleScripting
     u8 reshowMainState;
     u8 reshowHelperState;
     u8 levelUpHP;
-    bool8 monCaught;
 };
 
 struct BattleSpriteInfo
