@@ -1714,6 +1714,7 @@ BattleScript_EffectRapidSpin::
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	attackstring
 	ppreduce
+	typecalc
 	critcalc
 	damagecalc
 	adjustnormaldamage
