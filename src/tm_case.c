@@ -25,7 +25,7 @@
 #include "constants/songs.h"
 
 // Any item in the TM Case with nonzero importance is considered an HM
-#define IS_HM(itemId) (ItemId_GetImportance(itemId) != 0)
+#define IS_HM(itemId) (ItemId_GetImportance(itemId) != 1)
 
 #define TAG_SCROLL_ARROW 110
 
