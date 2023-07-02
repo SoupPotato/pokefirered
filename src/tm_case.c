@@ -25,7 +25,7 @@
 #include "constants/songs.h"
 
 // Any item in the TM Case with nonzero importance is considered an HM
-#define IS_HM(itemId) (ItemId_GetImportance(itemId) != 1)
+#define IS_HM(itemId) (ItemId_GetImportance(itemId) != 0)
 
 #define TAG_SCROLL_ARROW 110
 
@@ -980,10 +980,15 @@ static void Task_SelectedTMHM_Field(u8 taskId)
     StringAppend(strbuf, gText_Var1IsSelected + 2); // +2 skips over the stringvar
     TMCase_Print(WIN_SELECTED_MSG, FONT_NORMAL, strbuf, 0, 2, 1, 0, 0, COLOR_DARK);
     Free(strbuf);
-    if (IS_HM(gSpecialVar_ItemId))
+    if (ItemId_GetImportance(gSpecialVar_ItemId) != 2)
+    {
+
+    }
+    else if (IS_HM(gSpecialVar_ItemId))
     {
         PlaceHMTileInWindow(WIN_SELECTED_MSG, 0, 2);
         CopyWindowToVram(WIN_SELECTED_MSG, COPYWIN_GFX);
+
     }
 
     ScheduleBgCopyTilemapToVram(0);
