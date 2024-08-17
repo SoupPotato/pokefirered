@@ -274,6 +274,13 @@ struct Evolution
     u16 targetSpecies;
 };
 
+enum
+{
+    MOVE_PHYSICAL,
+    MOVE_SPECIAL,
+    MOVE_STATUS
+};
+
 #define NUM_UNOWN_FORMS 28
 
 #define GET_UNOWN_LETTER(personality) ((   \
