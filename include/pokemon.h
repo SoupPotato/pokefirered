@@ -246,7 +246,6 @@ struct BattleMove
     u8 target;
     s8 priority;
     u8 flags;
-    u8 category;
 };
 
 #define SPINDA_SPOT_WIDTH 16
@@ -269,13 +268,6 @@ struct Evolution
     u16 method;
     u16 param;
     u16 targetSpecies;
-};
-
-enum
-{
-    MOVE_PHYSICAL,
-    MOVE_SPECIAL,
-    MOVE_STATUS
 };
 
 #define NUM_UNOWN_FORMS 28
